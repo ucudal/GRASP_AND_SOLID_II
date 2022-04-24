@@ -13,6 +13,13 @@ namespace Full_GRASP_And_SOLID.Library
     {
         private ArrayList steps = new ArrayList();
 
+        public ArrayList Steps
+        {
+            get
+            {
+                return this.steps;
+            }
+        }
         public Product FinalProduct { get; set; }
 
         public void AddStep(Step step)
@@ -23,16 +30,6 @@ namespace Full_GRASP_And_SOLID.Library
         public void RemoveStep(Step step)
         {
             this.steps.Remove(step);
-        }
-
-        public void PrintRecipe()
-        {
-            Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
-            foreach (Step step in this.steps)
-            {
-                Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
-                    $"usando '{step.Equipment.Description}' durante {step.Time}");
-            }
         }
     }
 }
